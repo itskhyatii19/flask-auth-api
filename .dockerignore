@@ -1,3 +1,20 @@
-__pycache__
-tests
-*.db
+# Python cache
+__pycache__/
+*.pyc
+
+# Local database
+users.db
+
+# Tests (not needed in production container)
+tests/
+
+# Git files
+.git
+.gitignore
+
+# Environment files
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
