@@ -28,12 +28,23 @@ def create_app():
     db.init_db()
 
     # Swagger setup
+    authorizations = {
+    "Bearer": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Enter: Bearer <your-token>"
+    }}
+
     api = Api(
         app,
         title="Flask Auth API",
         version="1.0",
-        description="Secure authentication API with JWT"
+        description="Secure authentication API with JWT",
+        authorizations=authorizations,
+        security="Bearer"
     )
+
 
     auth_ns = api.namespace("auth", description="Authentication operations")
 
