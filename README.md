@@ -1,6 +1,16 @@
 # 🔐 Flask Authentication API  
 ### *Secure • Scalable • Production-style Backend*
 
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square&logo=python)
+![Flask](https://img.shields.io/badge/Flask-Backend-black?style=flat-square&logo=flask)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=flat-square&logo=docker)
+![Swagger](https://img.shields.io/badge/API-Swagger-green?style=flat-square&logo=swagger)
+![SQLite](https://img.shields.io/badge/Database-SQLite-blue?style=flat-square&logo=sqlite)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-success?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-purple?style=flat-square)
+
+
 A **modern authentication system** built using **Flask**, **JWT**, and **SQLite**.  
 This project implements **secure login, token-based authentication, role-based authorization, and blacklist logout system**.
 
@@ -15,6 +25,8 @@ This project implements **secure login, token-based authentication, role-based a
 - ✔ **Secure Password Hashing (bcrypt)**  
 - ✔ **Token Blacklist Logout**  
 - ✔ **Protected Routes**  
+- ✔ **Swagger API Documentation**  
+- ✔ **Dockerized Application**  
 - ✔ **Resume-ready Backend Project**
 
 ---
@@ -28,7 +40,8 @@ This project implements **secure login, token-based authentication, role-based a
 - 🚪 **Logout using Token Blacklist**
 - 🔒 **Protected Routes**
 - 🗃 **SQLite Database**
-- 🧪 **API Testing (Postman / Terminal)**
+- 🧪 **API Testing (Swagger / Postman / Terminal)**
+- 🐳 **Docker Support**
 
 ---
 
@@ -38,8 +51,10 @@ This project implements **secure login, token-based authentication, role-based a
 |--------|------------|
 | **Backend** | Flask (Python) |
 | **Authentication** | Flask-JWT-Extended |
+| **API Docs** | Flask-RESTX (Swagger) |
 | **Database** | SQLite |
 | **Security** | bcrypt |
+| **Containerization** | Docker |
 | **Testing** | Postman, curl |
 
 ---
@@ -55,60 +70,79 @@ flask_auth_api/
 ├── decorators.py       # Role-based decorators
 ├── blacklist.py        # Token blacklist logic
 ├── users.db            # SQLite database
-├── test_login.py       # Login test script
-├── test_logout.py      # Logout test script
+│
+├── tests/              # Test scripts
+│   ├── test_api.py
+│   ├── test_login.py
+│   └── test_logout.py
+│
+├── Dockerfile
+├── .dockerignore
 ├── requirements.txt
 └── README.md
-⚙️ Setup & Run
+⚙️ Setup & Run (Local)
 1️⃣ Clone repository
+bash
+Copy code
 git clone https://github.com/your-username/flask-auth-api.git
 cd flask-auth-api
-
 2️⃣ Create virtual environment
+bash
+Copy code
 python -m venv venv
 venv\Scripts\activate   # Windows
-
 3️⃣ Install dependencies
+bash
+Copy code
 pip install -r requirements.txt
-
 4️⃣ Run server
+bash
+Copy code
 python app.py
-
-
 Server runs at:
 
+text
+Copy code
 http://127.0.0.1:5000
+Swagger Docs:
 
+text
+Copy code
+http://127.0.0.1:5000/
+🐳 Run with Docker
+bash
+Copy code
+docker build -t flask-auth-api .
+docker run -p 5000:5000 flask-auth-api
+Open:
+
+text
+Copy code
+http://127.0.0.1:5000
 🔑 API Endpoints
-🏠 Home
-GET /
-
 📝 Signup
-POST /signup
+POST /auth/signup
 
-
-Request Body
-
+json
+Copy code
 {
   "username": "khyati",
   "password": "1234",
   "role": "admin"
 }
-
 🔐 Login
-POST /login
+POST /auth/login
 
-
-Request Body
-
+json
+Copy code
 {
   "username": "khyati",
   "password": "1234"
 }
-
-
 Response
 
+json
+Copy code
 {
   "access_token": "...",
   "refresh_token": "...",
@@ -117,47 +151,31 @@ Response
     "role": "admin"
   }
 }
-
 🔒 Protected Route
-GET /dashboard
-
+GET /auth/dashboard
 
 Headers
 
+text
+Copy code
 Authorization: Bearer <access_token>
-
-♻ Refresh Token
-POST /refresh
-
-
-Headers
-
-Authorization: Bearer <refresh_token>
-
 🚪 Logout
-POST /logout
-
+POST /auth/logout
 
 Headers
 
+text
+Copy code
 Authorization: Bearer <access_token>
-
 🔐 Security
-
 ✔ Passwords hashed using bcrypt
-
 ✔ JWT token expiry implemented
-
 ✔ Refresh token system
-
 ✔ Blacklist logout mechanism
-
 ✔ Role-based permissions
-
 ✔ Protected routes
 
 📚 What I Learned
-
 REST API development with Flask
 
 JWT authentication workflow
@@ -168,49 +186,35 @@ Token-based authorization
 
 Role-based access control
 
+Swagger API documentation
+
+Docker containerization
+
 Debugging backend systems
 
 Clean project architecture
 
 📝 Resume Summary
-
-Built a secure authentication API using Flask with JWT-based authorization, refresh tokens, role-based access control, and token blacklist logout system. Implemented bcrypt password hashing with SQLite integration.
+Built a secure authentication API using Flask with JWT-based authorization, refresh tokens, role-based access control, and token blacklist logout system. Added Swagger API documentation and Docker support for production-style deployment.
 
 👩‍💻 Author
-
 Khyati Sharma
 🎓 B.Tech AI Student
 💻 Backend & ML Enthusiast
 
 🚀 Future Enhancements
-
 📧 Email verification
 
 🔑 Password reset system
 
-🧪 Unit testing
+🧪 Unit testing with pytest
 
-📜 Swagger API documentation
+📜 Advanced Swagger docs
 
-🐳 Docker deployment
+🐳 Docker Compose
 
-☁ Cloud hosting
+☁ Cloud deployment
 
 ⭐ Support
-
 If you liked this project, give it a ⭐ star
 It motivates me to build more!
-
-
----
-
-### 🔥 Now your README has:
-✔ **Bold text**  
-✔ Proper **headings**  
-✔ Tables  
-✔ Code blocks  
-✔ Clean spacing  
-✔ GitHub-friendly layout  
-
----
-
