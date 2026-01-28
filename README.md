@@ -18,7 +18,7 @@ This project implements **secure login, token-based authentication, role-based a
 
 ---
 
-## 🌟 Highlights
+##  Highlights
 
 - ✔ **JWT Authentication** (Access & Refresh Tokens)  
 - ✔ **Role-Based Access Control**  
@@ -31,17 +31,17 @@ This project implements **secure login, token-based authentication, role-based a
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 🔐 **JWT Authentication**
-- 👤 **User Signup & Login**
-- ♻ **Access & Refresh Tokens**
-- 🛡 **Role-Based Authorization (Admin/User)**
-- 🚪 **Logout using Token Blacklist**
-- 🔒 **Protected Routes**
-- 🗃 **SQLite Database**
-- 🧪 **API Testing (Swagger / Postman / Terminal)**
-- 🐳 **Docker Support**
+-  **JWT Authentication**
+-  **User Signup & Login**
+-  **Access & Refresh Tokens**
+-  **Role-Based Authorization (Admin/User)**
+-  **Logout using Token Blacklist**
+-  **Protected Routes**
+-  **SQLite Database**
+-  **API Testing (Swagger / Postman / Terminal)**
+-  **Docker Support**
 
 ---
 
@@ -80,69 +80,57 @@ flask_auth_api/
 ├── .dockerignore
 ├── requirements.txt
 └── README.md
-⚙️ Setup & Run (Local)
-1️⃣ Clone repository
-bash
-Copy code
-git clone https://github.com/your-username/flask-auth-api.git
+```
+## Setup & Run (Local)
+
+### Clone Repository
+```bash
+git clone https://github.com/itskhyatii19/flask-auth-api.git
 cd flask-auth-api
-2️⃣ Create virtual environment
-bash
-Copy code
+Create Virtual Environment
 python -m venv venv
 venv\Scripts\activate   # Windows
-3️⃣ Install dependencies
-bash
-Copy code
+Install Dependencies
 pip install -r requirements.txt
-4️⃣ Run server
-bash
-Copy code
+Run Server
 python app.py
-Server runs at:
-
-text
-Copy code
+The server runs at:
+```text
 http://127.0.0.1:5000
-Swagger Docs:
-
-text
-Copy code
+```
+Swagger API Documentation:
+```text
 http://127.0.0.1:5000/
-🐳 Run with Docker
-bash
-Copy code
+```
+### Run with Docker
+```bash
 docker build -t flask-auth-api .
 docker run -p 5000:5000 flask-auth-api
+```
 Open:
-
-text
-Copy code
+```text
 http://127.0.0.1:5000
-🔑 API Endpoints
-📝 Signup
-POST /auth/signup
-
-json
-Copy code
+```
+## API Endpoints
+### Signup
+### POST /auth/signup
+```json
 {
   "username": "khyati",
   "password": "1234",
   "role": "admin"
 }
-🔐 Login
-POST /auth/login
-
-json
-Copy code
+```
+### Login
+### POST /auth/login
+```json
 {
   "username": "khyati",
   "password": "1234"
 }
-Response
-
-json
-Copy code
+```
+### Response
+```json
 {
   "access_token": "...",
   "refresh_token": "...",
@@ -151,70 +139,52 @@ Copy code
     "role": "admin"
   }
 }
-🔒 Protected Route
-GET /auth/dashboard
+```
+### Protected Route
+### GET /auth/dashboard
 
-Headers
-
-text
-Copy code
+### Headers
+```text
 Authorization: Bearer <access_token>
-🚪 Logout
-POST /auth/logout
+```
+### Logout
+### POST /auth/logout
 
-Headers
-
-text
-Copy code
+### Headers
+```text
 Authorization: Bearer <access_token>
-🔐 Security
-✔ Passwords hashed using bcrypt
-✔ JWT token expiry implemented
-✔ Refresh token system
-✔ Blacklist logout mechanism
-✔ Role-based permissions
-✔ Protected routes
-
-📚 What I Learned
-REST API development with Flask
-
-JWT authentication workflow
-
-Secure password storage using bcrypt
-
-Token-based authorization
-
+```
+### Security
+```text
+Passwords hashed using bcrypt
+JWT token expiry implemented
+Refresh token mechanism
+Token blacklist logout
 Role-based access control
-
+Protected routes
+```
+## What I Learned
+```text
+REST API development with Flask
+JWT authentication workflows
+Secure password storage using bcrypt
+Token-based authorization
+Role-based access control
 Swagger API documentation
-
 Docker containerization
-
 Debugging backend systems
-
-Clean project architecture
-
-📝 Resume Summary
-Built a secure authentication API using Flask with JWT-based authorization, refresh tokens, role-based access control, and token blacklist logout system. Added Swagger API documentation and Docker support for production-style deployment.
-
-👩‍💻 Author
-Khyati Sharma
-🎓 B.Tech AI Student
+Designing clean, modular backend architectures
+```
+## Future Enhancements
+```text
+Email verification
+Password reset workflow
+Unit testing with pytest
+Advanced Swagger documentation
+Docker Compose support
+Cloud deployment
+```
+## Author
+### Khyati Sharma
+B.Tech AI Student
 💻 Backend & ML Enthusiast
-
-🚀 Future Enhancements
-📧 Email verification
-
-🔑 Password reset system
-
-🧪 Unit testing with pytest
-
-📜 Advanced Swagger docs
-
-🐳 Docker Compose
-
-☁ Cloud deployment
-
-⭐ Support
-If you liked this project, give it a ⭐ star
-It motivates me to build more!
